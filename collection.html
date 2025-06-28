@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elite Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Side Navbar -->
+  <div class="side-navbar" id="sideNavbar">
+    <div class="side-navbar-links">
+      <a href="#">Collections</a>
+      <a href="#">Best Sellers</a>
+      <a href="#">Live Training</a>
+      <a href="#">Favourite</a>
+      <a href="#">About Us</a>
+    </div>
+  </div>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <h1>Elite Studio</h1>
+    <div class="navbar-links">
+      <a href="#">Collections</a>
+      <a href="#">Best Sellers</a>
+      <a href="#">Live Training</a>
+      <a href="#">Favourite</a>
+      <a href="#">About Us</a>
+    </div>
+    <div class="navbar-menu-toggle" id="menuToggle">&#9776;</div>
+  </nav>
+
+  <!-- Title Section -->
+  <div class="title">
+    <h1>NEW TRENDY COLLECTIONS</h1>
+    <div class="breadcrumb">
+      <span><a href="home.html">HOME</a></span> > <span>FESTIVE COLLECTIONS</span>
+    </div>
+  </div>
+
+  <!-- Filter Button -->
+  <div class="filter-button-container">
+    <button class="filter-button" id="filterButton">FILTER</button>
+  </div>
+
+  <!-- Filter Sidebar -->
+  <div class="filter-sidebar" id="filterSidebar">
+    <span class="close-filter" id="closeFilter">&times;</span>
+    <h2>FILTER</h2>
+
+    <div class="filter-section">
+      <h3>Availability</h3>
+      <div class="filter-option">
+        <input type="checkbox" id="in-stock" checked>
+        <label for="in-stock">In stock (542)</label>
+      </div>
+      <div class="filter-option">
+        <input type="checkbox" id="out-of-stock">
+        <label for="out-of-stock">Out of stock (88)</label>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h3>Price</h3>
+      <div class="price-range">
+        <input type="number" id="min-price" placeholder="From" value="0">
+        <input type="number" id="max-price" placeholder="To" value="18850">
+      </div>
+    </div>
+
+    <button class="apply-filters" id="applyFilters">APPLY FILTERS</button>
+  </div>
+
+  <script src="function.js"></script>
+</body>
+</html>

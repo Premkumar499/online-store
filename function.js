@@ -92,3 +92,91 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// collection page
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menuToggle');
+  const sideNavbar = document.getElementById('sideNavbar');
+  const filterButton = document.getElementById('filterButton');
+  const filterSidebar = document.getElementById('filterSidebar');
+  const closeFilter = document.getElementById('closeFilter');
+  const overlay = document.getElementById('overlay');
+  const applyFilters = document.getElementById('applyFilters');
+
+  // Toggle side navbar
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sideNavbar.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Close filter sidebar if open
+    if (filterSidebar.classList.contains('active')) {
+      filterSidebar.classList.remove('active');
+    }
+  });
+
+  // Open filter sidebar
+  filterButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    filterSidebar.classList.add('active');
+    overlay.classList.add('active');
+    
+    // Close side navbar if open
+    if (sideNavbar.classList.contains('active')) {
+      sideNavbar.classList.remove('active');
+    }
+  });
+
+  // Close filter sidebar
+  closeFilter.addEventListener('click', (e) => {
+    e.stopPropagation();
+    filterSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  // Close all on overlay click
+  overlay.addEventListener('click', () => {
+    sideNavbar.classList.remove('active');
+    filterSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  // Apply filters button
+  applyFilters.addEventListener('click', () => {
+    const inStock = document.getElementById('in-stock').checked;
+    const outStock = document.getElementById('out-of-stock').checked;
+    const min = document.getElementById('min-price').value;
+    const max = document.getElementById('max-price').value;
+
+    // Here you would typically filter products based on these values
+    console.log(`Filters Applied:\nIn stock: ${inStock}\nOut of stock: ${outStock}\nPrice: ₹${min} - ₹${max}`);
+
+    // Close the filter sidebar
+    filterSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+
+  // Close sidebars when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!sideNavbar.contains(e.target) && e.target !== menuToggle) {
+      sideNavbar.classList.remove('active');
+    }
+    
+    if (!filterSidebar.contains(e.target) && e.target !== filterButton) {
+      filterSidebar.classList.remove('active');
+    }
+    
+    if (!sideNavbar.classList.contains('active') && !filterSidebar.classList.contains('active')) {
+      overlay.classList.remove('active');
+    }
+  });
+});
+
+// Prevent clicks inside sidebars from closing them
+document.getElementById('sideNavbar').addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
+document.getElementById('filterSidebar').addEventListener('click', (e) => {
+  e.stopPropagation();
+});
