@@ -1053,12 +1053,8 @@ body {
     width: 50vw; /* Takes 50% of the viewport width */
     height: 50vw; /* Makes the height equal to the width (square) */
     padding-top: 0; /* Remove padding-top when using fixed width/height based on vw */
-    margin: 0 auto; /* Center the image if it's not full width */
-
-    /* If you want it to fill the available width but maintain a 1:1 aspect ratio: */
-    /* width: 100%; */
-    /* padding-top: 100%; */
-    /* height: 0; */
+    margin: 0 auto; 
+    /* Center the image if it's not full width */
   }
 
   .product-details-container .product-info h1 {
@@ -1096,4 +1092,5 @@ body {
   .product-card {
     width: 100%;
   }
+}
 }
