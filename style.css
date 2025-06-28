@@ -10,7 +10,7 @@ body {
   color: #1D232C;
 }
 
-/* Navbar */
+/* --- Navbar --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,14 +21,12 @@ body {
   color: white;
 }
 
-
-.title-text{
+.title-text {
   font-size: 24px;
   font-weight: bold;
   color: white;
   text-decoration: none;
 }
-
 
 .navbar-links {
   display: flex;
@@ -52,7 +50,7 @@ body {
   cursor: pointer;
 }
 
-/* Side Navbar */
+/* --- Side Navbar --- */
 .side-navbar {
   position: fixed;
   top: 0;
@@ -77,7 +75,7 @@ body {
   text-decoration: underline;
 }
 
-/* Header Section */
+/* --- Header Section (Carousel) --- */
 .header {
   position: relative;
   height: 80vh;
@@ -194,7 +192,7 @@ body {
   border-radius: 6px;
 }
 
-/* Collection Section */
+/* --- Collection Section (Homepage) --- */
 .collection-container {
   background-color: #e7d191;
   padding: 40px;
@@ -245,7 +243,7 @@ body {
   padding: 0 10px;
 }
 
-/* Training Section */
+/* --- Training Section --- */
 .training-section {
   padding: 50px 20px;
   text-align: center;
@@ -336,7 +334,7 @@ body {
   border-radius: 25px;
 }
 
-/* Product Section */
+/* --- Product Section (Homepage) --- */
 .product-section {
   padding: 60px 20px;
   text-align: center;
@@ -409,7 +407,7 @@ body {
   background-color: #8b6a3f;
 }
 
-/* Shipping Info */
+/* --- Shipping Info --- */
 .shipping-info {
   display: flex;
   justify-content: center;
@@ -439,7 +437,7 @@ body {
   color: #999;
 }
 
-/* Membership Section */
+/* --- Membership Section --- */
 .membership-section {
   background-color: #fff;
   padding: 50px 0;
@@ -480,7 +478,7 @@ body {
   background-color: #333;
 }
 
-/* Footer Links */
+/* --- Footer --- */
 .footer-links-container {
   display: flex;
   justify-content: space-around;
@@ -590,96 +588,7 @@ body {
   color: #666;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navbar-links {
-    display: none;
-  }
-
-  .navbar-menu-toggle {
-    display: block;
-  }
-
-  .collection-item {
-    flex: 1 1 calc(50% - 20px);
-  }
-
-  .training-card.large {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .training-card.large img,
-  .training-info {
-    width: 100%;
-  }
-
-  .training-card.large img {
-    height: 250px;
-  }
-
-  .header-text h2 {
-    font-size: 36px;
-  }
-
-  .shipping-info {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .shipping-item {
-    padding: 10px 0;
-  width: 100%;
-  }
-
-  .shipping-item:not(:last-child)::after {
-    display: none;
-  }
-
-  .footer-links-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-column {
-    text-align: center;
-    width: 100%;
-  }
-
-  .footer-icons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .collection-item {
-    flex: 1 1 100%;
-  }
-
-  .header-text h2 {
-    font-size: 32px;
-  }
-
-  .arrow {
-    padding: 8px;
-    font-size: 20px;
-  }
-
-  .side-navbar {
-    width: 80%;
-    left: -80%;
-  }
-
-  .product-card {
-    width: 100%;
-  }
-}
-
-
-/* Collection Page */
-/* filter button and filter nave and product*/
-/* Collection Page Styles */
-
+/* --- Collection Page Styles --- */
 
 /* Title Section */
 .title {
@@ -713,8 +622,10 @@ body {
   color: #a57d4d;
 }
 
-/* Product Info Styling */
-.product-name {
+/* Product Info Styling (for Collection Page Grid) */
+/* These styles appear to be duplicated from the Product Section on the homepage,
+   but specific to the collection grid. Renamed for clarity. */
+.products-grid .product-name { /* Specificity added */
   font-size: 18px;
   margin-bottom: 5px;
   color: #333;
@@ -722,7 +633,7 @@ body {
   text-align: center;
 }
 
-.product-price {
+.products-grid .product-price { /* Specificity added */
   font-size: 18px;
   font-weight: bold;
   color: #a57d4d;
@@ -864,10 +775,7 @@ body {
   background-color: #8b6a3f;
 }
 
-.results-count {
-  color: #666;
-  font-size: 14px;
-}
+/* Note: .results-count is defined above for overall collection page */
 
 .products-grid {
   display: grid;
@@ -876,15 +784,17 @@ body {
   padding: 0 20px;
 }
 
-.product-card {
-  background-color: rgb(83, 49, 74);
+.products-grid .product-card { /* Specificity added to distinguish from homepage product-card */
+  background-color: rgb(83, 49, 74); /* This background color might be too dark, consider changing */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  width: auto; /* Allow grid to manage width */
+  padding: 0; /* Remove padding as content will have it */
 }
 
-.product-card:hover {
+.products-grid .product-card:hover {
   transform: translateY(-5px);
 }
 
@@ -898,22 +808,22 @@ body {
   padding: 15px;
 }
 
-.product-name {
+.product-info .product-name { /* More specific for collection product-card */
   font-size: 16px;
   margin-bottom: 5px;
-  color: #333;
+  color: white; /* Changed for contrast on dark card */
 }
 
-.product-price {
+.product-info .product-price { /* More specific for collection product-card */
   font-size: 18px;
   font-weight: bold;
-  color: #333; /* Changed from #a57d4d to #333 for better visibility */
+  color: #ffd700; /* Changed for better visibility and contrast */
   margin-top: 8px;
   letter-spacing: 0.5px;
 }
 
 /* Add this for the currency symbol */
-.product-price::before {
+.product-info .product-price::before {
   content: "Rs ";
   font-weight: bold;
 }
@@ -934,21 +844,7 @@ body {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .filter-sidebar {
-    width: 80%;
-    left: -80%;
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-  
-  .product-image {
-    height: 200px;
-  }
-}
-/* Product Details Page Styles */
+/* --- Product Details Page Styles --- */
 .product-details-container {
   display: flex;
   max-width: 1200px;
@@ -981,13 +877,13 @@ body {
   transition: transform 0.3s ease;
 }
 
-.product-info {
+.product-details-container .product-info { /* Specificity for details page */
   flex: 1;
   min-width: 0;
   padding: 1rem 0;
 }
 
-.product-info h1 {
+.product-details-container .product-info h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #333;
@@ -1035,26 +931,6 @@ body {
   background-color: #9a6f82;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .product-details-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .main-image {
-    padding-top: 100%; /* Square aspect ratio on mobile */
-  }
-  
-  .product-info h1 {
-    font-size: 1.5rem;
-  }
-  
-  .price {
-    font-size: 1.25rem;
-  }
-}
-
 /* Loading state (in case you add loading functionality later) */
 .loading {
   position: relative;
@@ -1080,3 +956,144 @@ body {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: block;
+  }
+
+  /* Header Section */
+  .header-text h2 {
+    font-size: 36px;
+  }
+
+  /* Collection Section */
+  .collection-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  /* Training Section */
+  .training-card.large {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .training-card.large img,
+  .training-info {
+    width: 100%;
+  }
+
+  .training-card.large img {
+    height: 250px;
+  }
+
+  /* Shipping Info */
+  .shipping-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shipping-item {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .shipping-item:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Footer */
+  .footer-links-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+
+  /* Collection Page */
+  .filter-sidebar {
+    width: 80%;
+    left: -80%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .product-image {
+    height: 200px;
+  }
+
+  @media (max-width: 768px) {
+  /* ... existing responsive styles ... */
+
+  /* Product Details Page */
+  .product-details-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .main-image {
+    /* To make it take 50% of the viewport width and maintain a 1:1 aspect ratio */
+    /* if you want it to be square and 50% of the screen width */
+    width: 50vw; /* Takes 50% of the viewport width */
+    height: 50vw; /* Makes the height equal to the width (square) */
+    padding-top: 0; /* Remove padding-top when using fixed width/height based on vw */
+    margin: 0 auto; /* Center the image if it's not full width */
+
+    /* If you want it to fill the available width but maintain a 1:1 aspect ratio: */
+    /* width: 100%; */
+    /* padding-top: 100%; */
+    /* height: 0; */
+  }
+
+  .product-details-container .product-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header Section */
+  .header-text h2 {
+    font-size: 32px;
+  }
+
+  .arrow {
+    padding: 8px;
+    font-size: 20px;
+  }
+
+  /* Side Navbar */
+  .side-navbar {
+    width: 80%;
+    left: -80%;
+  }
+
+  /* Collection Section */
+  .collection-item {
+    flex: 1 1 100%;
+  }
+
+  /* Product Section (Homepage) */
+  .product-card {
+    width: 100%;
+  }
+}
