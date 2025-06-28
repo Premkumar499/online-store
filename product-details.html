@@ -1,11 +1,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elite Studio - Collections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Elite Studio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Side Navbar -->
@@ -17,25 +16,6 @@
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
-    </div>
-  </div>
-
-  <!-- Filter Sidebar -->
-  <div class="filter-sidebar" id="filterSidebar">
-    <div class="filter-header">
-      <h3>Filter</h3>
-      <button class="close-filter" id="closeFilter">&times;</button>
-    </div>
-    <div class="filter-section">
-      <h4>Price</h4>
-      <div class="price-range">
-        <div class="price-inputs">
-          <input type="number" id="minPrice" placeholder="From ₹" min="0" value="0">
-          <span>-</span>
-          <input type="number" id="maxPrice" placeholder="To ₹" min="0" value="20000">
-        </div>
-        <button id="applyPrice">Apply</button>
-      </div>
     </div>
   </div>
 
@@ -53,29 +33,24 @@
     <div class="navbar-menu-toggle" onclick="toggleSideNavbar()">&#9776;</div>
   </nav>
 
-  <!-- Title Section -->
-  <div class="title">
-    <h1>NEW TRENDY COLLECTIONS</h1>
-    <div class="breadcrumb">
-      <span><a href="home.html">HOME</a></span> > <span>FESTIVE COLLECTIONS</span>
+  <div class="product-details-container">
+    <div class="product-gallery">
+      <div class="main-image">
+        <img id="mainProductImage" src="" alt="">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 id="productTitle"></h1>
+      <p class="price" id="productPrice"></p>
+      <div class="product-description"></div>
+      <button class="add-to-cart">Add to Cart</button>
     </div>
   </div>
 
-  <!-- Collection Content -->
-  <div class="collection-content">
-    <div class="collection-header">
-      <button class="filter-button" id="filterButton">
-        <i class="fas fa-filter"></i> Filter
-      </button>
-      <div class="results-count">Showing 1 - 0 of 0 results</div>
-    </div>
+  
 
-    <div class="products-grid" id="productsGrid">
-      <!-- Products will be dynamically inserted here -->
-    </div>
-  </div>
-
-  <!-- Back to Top Button -->
+  <!-- Back to Top -->
   <button id="backToTop" class="back-to-top">
     <i class="fas fa-angle-up"></i>
   </button>
@@ -138,6 +113,6 @@
   </footer>
 
   <script src="function.js"></script>
-  <script src="collection.js"></script>
+  <script src="product-details.js"></script>
 </body>
 </html>
