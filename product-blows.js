@@ -1,12 +1,12 @@
 const products = [
-  { id: 1, name: "Skaya", price: 3850 },
-  { id: 2, name: "Amaya", price: 4850 },
-  { id: 3, name: "Velina", price: 3250 },
-  { id: 4, name: "Hira", price: 2850 },
-  { id: 5, name: "Lina", price: 4250 },
-  { id: 6, name: "Mira", price: 3650 },
-  { id: 7, name: "Tara", price: 3150 },
-  { id: 8, name: "Kira", price: 2750 }
+  { id: 1, name: "Skaya", price: 3850, image: "elite studio pic/collection model.jpg" },
+  { id: 2, name: "Amaya", price: 4850, image: "elite studio pic/collection model.jpg" },
+  { id: 3, name: "Velina", price: 3250, image: "elite studio pic/collection model.jpg" },
+  { id: 4, name: "Hira", price: 2850, image: "elite studio pic/collection model.jpg" },
+  { id: 5, name: "Lina", price: 4250, image: "elite studio pic/collection model.jpg" },
+  { id: 6, name: "Mira", price: 3650, image: "elite studio pic/collection model.jpg" },
+  { id: 7, name: "Tara", price: 3150, image: "elite studio pic/collection model.jpg" },
+  { id: 8, name: "Kira", price: 2750, image: "elite studio pic/collection model.jpg" }
 ];
 
 // DOM Elements
@@ -62,31 +62,24 @@ function setupEventListeners() {
 }
 
 function handleRealTimeSearch() {
-  // Clear any existing timeout to prevent multiple rapid searches
   clearTimeout(searchTimeout);
   
-  // Set a new timeout to execute the search after a short delay (300ms)
   searchTimeout = setTimeout(() => {
     const searchTerm = searchInput.value.trim().toLowerCase();
     
     if (searchTerm.length === 0) {
-      // If search is empty, show all filtered products
       renderProducts(filteredProducts);
       searchSuggestions.style.display = 'none';
       return;
     }
     
-    // Filter products based on search term
     const results = filteredProducts.filter(product => 
       product.name.toLowerCase().includes(searchTerm)
     );
     
-    // Update the product grid
     renderProducts(results);
-    
-    // Show search suggestions
     showSearchSuggestions(results);
-  }, 300); // 300ms delay before executing the search
+  }, 300);
 }
 
 function showSearchSuggestions(suggestions) {
@@ -106,7 +99,7 @@ function showSearchSuggestions(suggestions) {
 }
 
 function goToProduct(id) {
-  window.location.href = `product-details.html?id=${id}`;
+  window.location.href = `all-collection-detail.html?id=${id}`;
 }
 
 function applyFilters() {
@@ -136,13 +129,13 @@ function renderProducts(list) {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
-      <img src="elite studio pic/collection model.jpg" alt="${product.name}" class="product-image">
+      <img src="${product.image}" alt="${product.name}" class="product-image">
       <div class="product-info">
         <h3 class="product-name">${product.name}</h3>
         <p class="product-price">₹ ${product.price}</p>
       </div>
     `;
-    card.onclick = () => window.location.href = `product-details.html?id=${product.id}`;
+    card.onclick = () => window.location.href = `all-collection-detail.html?id=${product.id}`;
     productsGrid.appendChild(card);
   });
 

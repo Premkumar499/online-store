@@ -1,19 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elite Studio - Collections</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products - Elite Studio</title>
+  <link rel="stylesheet" href="all-collection.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Side Navbar -->
   <div class="side-navbar" id="sideNavbar">
     <div class="side-navbar-links">
       <a href="home.html">Home</a>
-      <a href="collection.html">Collections</a>
-      <a href="#">products</a>
+      <a href="all-collection.html">Collections</a>
+      <a href="product-blows.html">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -37,6 +37,21 @@
         <button id="applyPrice">Apply</button>
       </div>
     </div>
+    <div class="filter-section">
+      <h4>Categories</h4>
+      <div class="filter-item">
+        <input type="checkbox" id="category1" name="category" value="Blouses" checked>
+        <label for="category1">Blouses</label>
+      </div>
+      <div class="filter-item">
+        <input type="checkbox" id="category2" name="category" value="Bangles" checked>
+        <label for="category2">Bangles</label>
+      </div>
+      <div class="filter-item">
+        <input type="checkbox" id="category3" name="category" value="Materials" checked>
+        <label for="category3">Materials</label>
+      </div>
+    </div>
   </div>
 
   <!-- Navbar -->
@@ -44,8 +59,8 @@
     <a href="home.html" class="title-text">Elite Studio</a>
     <div class="navbar-links">
       <a href="home.html">Home</a>
-      <a href="collection.html">Collections</a>
-      <a href="#">products</a>
+      <a href="all-collection.html">Collections</a>
+      <a href="product-blows.html">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -55,27 +70,26 @@
 
   <!-- Title Section -->
   <div class="title">
-    <h1>NEW TRENDY COLLECTIONS</h1>
+    <h1>OUR COLLECTIONS</h1>
     <div class="breadcrumb">
-      <span><a href="home.html">HOME</a></span> > <span>FESTIVE COLLECTIONS</span>
+      <span><a href="home.html">HOME</a></span> > <span>COLLECTIONS</span>
     </div>
   </div>
 
-  <!--product search-->
+  <!-- Product Search -->
+  <div class="product-selection">
+    <form class="product-search" id="searchForm">
+      <input type="text" id="search" placeholder="Search products..." autocomplete="off">
+      <button type="submit" class="search-button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <div class="search-suggestions" id="searchSuggestions"></div>
+    </form>
+  </div>
 
-<div class="product-selection">
-  <form class="product-search" id="searchForm">
-    <input type="text" id="search" placeholder="Search products..." autocomplete="off">
-    <button type="submit" class="search-button">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-    <div class="search-suggestions" id="searchSuggestions"></div>
-  </form>
-</div>
-
-  <!-- Collection Content -->
-  <div class="collection-content">
-    <div class="collection-header">
+  <!-- Products Content -->
+  <div class="products-content">
+    <div class="products-header">
       <button class="filter-button" id="filterButton">
         <i class="fas fa-filter"></i> Filter
       </button>
@@ -149,7 +163,6 @@
     </div>
   </footer>
 
-  <script src="function.js"></script>
-  <script src="collection.js"></script>
+  <script src="all-collection.js"></script>
 </body>
 </html>

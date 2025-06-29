@@ -1,19 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details - Elite Studio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="all-collection.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="elite studio pic/icon.avif" type="image/avif">
 </head>
 <body>
   <!-- Side Navbar -->
   <div class="side-navbar" id="sideNavbar">
     <div class="side-navbar-links">
       <a href="home.html">Home</a>
-      <a href="collection.html">Collections</a>
-      <a href="#">products</a>
+      <a href="all-collection.html">Collections</a>
+      <a href="product-blows.html">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -25,8 +25,8 @@
     <a href="home.html" class="title-text">Elite Studio</a>
     <div class="navbar-links">
       <a href="home.html">Home</a>
-      <a href="collection.html">Collections</a>
-      <a href="#">products</a>
+      <a href="all-collection.html">Collections</a>
+      <a href="product-blows.html">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -35,22 +35,14 @@
   </nav>
 
   <div class="product-details-container">
-    <!-- Replace the product-gallery div with this code -->
-<div class="product-gallery">
-  <div class="main-image" onclick="openZoomModal(this)">
-    <img id="mainProductImage" src="" alt="">
-  </div>
-  <div class="thumbnail-container">
-    <!-- Thumbnails will be added dynamically by JavaScript -->
-  </div>
-</div>
-
-<!-- Add this modal for zoomed image at the bottom of the body (before scripts) -->
-<div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
-  <span class="close-zoom">&times;</span>
-  <img class="zoom-modal-content" id="zoomedImage">
-  <div class="zoom-caption"></div>
-</div>
+    <div class="product-gallery">
+      <div class="main-image" onclick="openZoomModal(this)">
+        <img id="mainProductImage" src="" alt="">
+      </div>
+      <div class="thumbnail-container">
+        <!-- Thumbnails will be added dynamically by JavaScript -->
+      </div>
+    </div>
 
     <div class="product-info">
       <h1 id="productTitle"></h1>
@@ -60,7 +52,12 @@
     </div>
   </div>
 
-  
+  <!-- Zoom Modal -->
+  <div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
+    <span class="close-zoom">&times;</span>
+    <img class="zoom-modal-content" id="zoomedImage">
+    <div class="zoom-caption"></div>
+  </div>
 
   <!-- Back to Top -->
   <button id="backToTop" class="back-to-top">
@@ -124,7 +121,6 @@
     </div>
   </footer>
 
-  <script src="function.js"></script>
-  <script src="product-details.js"></script>
+  <script src="all-collection-detail.js"></script>
 </body>
 </html>
