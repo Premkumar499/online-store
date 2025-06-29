@@ -5,6 +5,7 @@
   <title>Product Details - Elite Studio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="elite studio pic/icon.avif" type="image/avif">
 </head>
 <body>
   <!-- Side Navbar -->
@@ -12,7 +13,7 @@
     <div class="side-navbar-links">
       <a href="home.html">Home</a>
       <a href="collection.html">Collections</a>
-      <a href="#">Best Sellers</a>
+      <a href="#">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -25,7 +26,7 @@
     <div class="navbar-links">
       <a href="home.html">Home</a>
       <a href="collection.html">Collections</a>
-      <a href="#">Best Sellers</a>
+      <a href="#">products</a>
       <a href="#">Live Training</a>
       <a href="#">Favourite</a>
       <a href="#">About Us</a>
@@ -34,11 +35,22 @@
   </nav>
 
   <div class="product-details-container">
-    <div class="product-gallery">
-      <div class="main-image">
-        <img id="mainProductImage" src="" alt="">
-      </div>
-    </div>
+    <!-- Replace the product-gallery div with this code -->
+<div class="product-gallery">
+  <div class="main-image" onclick="openZoomModal(this)">
+    <img id="mainProductImage" src="" alt="">
+  </div>
+  <div class="thumbnail-container">
+    <!-- Thumbnails will be added dynamically by JavaScript -->
+  </div>
+</div>
+
+<!-- Add this modal for zoomed image at the bottom of the body (before scripts) -->
+<div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
+  <span class="close-zoom">&times;</span>
+  <img class="zoom-modal-content" id="zoomedImage">
+  <div class="zoom-caption"></div>
+</div>
 
     <div class="product-info">
       <h1 id="productTitle"></h1>
