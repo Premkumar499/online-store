@@ -193,7 +193,7 @@ function showSearchSuggestions(suggestions) {
 }
 
 function goToProduct(id) {
-  window.location.href = `product-details.html?id=${id}`;
+  window.location.href = `all-collection-detail.html?id=${id}`;
 }
 
 function applyFilters() {
@@ -218,14 +218,7 @@ function applyFilters() {
   searchInput.value = '';
   searchSuggestions.style.display = 'none';
 }
-function goToProduct(id) {
-  window.location.href = `product-detail.html?id=${id}`;
-}
 
-// In renderProducts function:
-card.onclick = () => window.location.href = `product-detail.html?id=${product.id}`;
-
-// Update the renderProducts function
 function renderProducts(list) {
   productsGrid.innerHTML = '';
   

@@ -82,7 +82,7 @@ const products = {
     material: "Various materials",
     stock: "In Stock",
     vendor: "Elite Studio",
-    image: "elite studio pic/product.jpegg"
+    image: "elite studio pic/product.jpeg"
   }
 };
 
@@ -212,10 +212,12 @@ function closeZoomModal() {
   document.getElementById('zoomModal').style.display = "none";
 }
 
-// Toggle side navbar function (should be in a shared functions.js file)
+// Toggle side navbar function
 function toggleSideNavbar() {
   const sideNavbar = document.getElementById('sideNavbar');
-  sideNavbar.style.left = sideNavbar.style.left === '0px' ? '-60%' : '0px';
+  const isMobile = window.innerWidth <= 768;
+  const targetWidth = isMobile ? '80%' : '60%';
+  sideNavbar.style.left = sideNavbar.style.left === '0px' ? `-${targetWidth}` : '0px';
 }
 
 // Back to top button functionality

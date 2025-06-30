@@ -1,4 +1,3 @@
-// 4. function.js
 function toggleSideNavbar() {
   const sideNavbar = document.getElementById('sideNavbar');
   const isMobile = window.innerWidth <= 768;

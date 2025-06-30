@@ -1,12 +1,60 @@
 const products = [
-  { id: 1, name: "Skaya", price: 3850, image: "elite studio pic/collection model.jpg" },
-  { id: 2, name: "Amaya", price: 4850, image: "elite studio pic/collection model.jpg" },
-  { id: 3, name: "Velina", price: 3250, image: "elite studio pic/collection model.jpg" },
-  { id: 4, name: "Hira", price: 2850, image: "elite studio pic/collection model.jpg" },
-  { id: 5, name: "Lina", price: 4250, image: "elite studio pic/collection model.jpg" },
-  { id: 6, name: "Mira", price: 3650, image: "elite studio pic/collection model.jpg" },
-  { id: 7, name: "Tara", price: 3150, image: "elite studio pic/collection model.jpg" },
-  { id: 8, name: "Kira", price: 2750, image: "elite studio pic/collection model.jpg" }
+  { 
+    id: 1, 
+    name: "Skaya", 
+    price: 3850, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Beautiful Skaya blouse with intricate embroidery work." 
+  },
+  { 
+    id: 2, 
+    name: "Amaya", 
+    price: 4850, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Elegant Amaya blouse with premium fabric." 
+  },
+  { 
+    id: 3, 
+    name: "Velina", 
+    price: 3250, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Stylish Velina blouse perfect for occasions." 
+  },
+  { 
+    id: 4, 
+    name: "Hira", 
+    price: 2850, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Simple yet elegant Hira blouse for daily wear." 
+  },
+  { 
+    id: 5, 
+    name: "Lina", 
+    price: 4250, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Luxurious Lina blouse with designer patterns." 
+  },
+  { 
+    id: 6, 
+    name: "Mira", 
+    price: 3650, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Trendy Mira blouse with modern cuts." 
+  },
+  { 
+    id: 7, 
+    name: "Tara", 
+    price: 3150, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Classic Tara blouse with traditional motifs." 
+  },
+  { 
+    id: 8, 
+    name: "Kira", 
+    price: 2750, 
+    image: "elite studio pic/collection model.jpg", 
+    description: "Affordable Kira blouse with great quality." 
+  }
 ];
 
 // DOM Elements
@@ -99,7 +147,7 @@ function showSearchSuggestions(suggestions) {
 }
 
 function goToProduct(id) {
-  window.location.href = `all-collection-detail.html?id=${id}`;
+  window.location.href = `product-detail.html?id=${id}`;
 }
 
 function applyFilters() {
@@ -135,7 +183,7 @@ function renderProducts(list) {
         <p class="product-price">₹ ${product.price}</p>
       </div>
     `;
-    card.onclick = () => window.location.href = `all-collection-detail.html?id=${product.id}`;
+    card.onclick = () => window.location.href = `product-detail.html?id=${product.id}`;
     productsGrid.appendChild(card);
   });
 
