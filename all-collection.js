@@ -86,7 +86,29 @@ let searchTimeout;
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts(products);
+  // Check for category parameter in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get('category');
+  
+  if (categoryParam) {
+    // Uncheck all category checkboxes first
+    document.querySelectorAll('input[name="category"]').forEach(checkbox => {
+      checkbox.checked = false;
+    });
+    
+    // Check the appropriate checkbox based on the parameter
+    const categoryCheckbox = document.querySelector(`input[name="category"][value="${categoryParam}"]`);
+    if (categoryCheckbox) {
+      categoryCheckbox.checked = true;
+    }
+    
+    // Apply filters immediately
+    applyFilters();
+  } else {
+    // Default behavior - show all products
+    renderProducts(products);
+  }
+  
   setupEventListeners();
   setupBackToTop();
 });
@@ -243,4 +265,12 @@ function renderProducts(list) {
   });
 
   resultsCount.textContent = `Showing 1 - ${list.length} of ${list.length} results`;
+}
+
+// Toggle side navbar function (if needed elsewhere)
+function toggleSideNavbar() {
+  const sideNavbar = document.getElementById('sideNavbar');
+  const isMobile = window.innerWidth <= 768;
+  const targetWidth = isMobile ? '80%' : '60%';
+  sideNavbar.style.left = sideNavbar.style.left === '0px' ? `-${targetWidth}` : '0px';
 }
