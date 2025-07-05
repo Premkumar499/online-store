@@ -8,29 +8,7 @@ mobileMenuBtn.addEventListener('click', () => {
         '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
 });
 
-// FAQ Accordion
-const faqQuestions = document.querySelectorAll('.faq-question');
 
-faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const isActive = question.classList.contains('active');
-        
-        // Close all answers first
-        document.querySelectorAll('.faq-answer').forEach(ans => {
-            ans.classList.remove('show');
-        });
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.classList.remove('active');
-        });
-        
-        // Open current if it wasn't active
-        if (!isActive) {
-            question.classList.add('active');
-            answer.classList.add('show');
-        }
-    });
-});
 
 // Form Submission - THIS IS THE IMPORTANT PART
 const enrollmentForm = document.getElementById('enrollmentForm');
