@@ -78,3 +78,8 @@ window.addEventListener('scroll', () => {
 backToTopButton?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Redirect to training page when "Join Now" button is clicked
+function redirectToTraining() {
+    window.location.href = 'training.html';
+}

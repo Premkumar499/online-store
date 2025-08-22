@@ -198,18 +198,42 @@ function changeMainImage(src, index) {
   });
 }
 
+// Open zoom modal
 function openZoomModal(element) {
   const modal = document.getElementById('zoomModal');
-  const modalImg = document.getElementById('zoomedImage');
-  const captionText = document.querySelector('.zoom-caption');
+  const zoomedImage = document.getElementById('zoomedImage');
   
-  modal.style.display = "block";
-  modalImg.src = element.querySelector('img').src;
-  captionText.innerHTML = element.querySelector('img').alt;
+  // Get the image source from the clicked element
+  const imgSrc = element.querySelector('img').src;
+  zoomedImage.src = imgSrc;
+  
+  // Show the modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent scrolling
 }
 
-function closeZoomModal() {
-  document.getElementById('zoomModal').style.display = "none";
+// Close zoom modal
+function closeZoomModal(event) {
+  // Only close if clicking on the background or close button
+  if (!event || event.target.classList.contains('zoom-modal') || 
+      event.target.classList.contains('close-zoom')) {
+    const modal = document.getElementById('zoomModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  }
+}
+
+// Change product image
+function changeImage(thumbnail, imageUrl) {
+  // Update main image
+  const mainImage = document.getElementById('mainProductImage');
+  mainImage.src = imageUrl;
+  
+  // Update active thumbnail
+  document.querySelectorAll('.thumbnail').forEach(thumb => {
+    thumb.classList.remove('active');
+  });
+  thumbnail.classList.add('active');
 }
 
 // Toggle side navbar function

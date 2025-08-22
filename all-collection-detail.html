@@ -50,12 +50,14 @@
     </div>
   </div>
 
-  <!-- Zoom Modal -->
-  <div id="zoomModal" class="zoom-modal" onclick="closeZoomModal()">
-    <span class="close-zoom">&times;</span>
-    <img class="zoom-modal-content" id="zoomedImage">
-    <div class="zoom-caption"></div>
+   <!-- Zoom Modal -->
+<div id="zoomModal" class="zoom-modal" onclick="closeZoomModal(event)">
+  <span class="close-zoom" onclick="closeZoomModal(event)">&times;</span>
+  <div class="zoom-image-container">
+    <img class="zoom-modal-content" id="zoomedImage" src="">
   </div>
+</div>
+
 
   <!-- Back to Top -->
   <button id="backToTop" class="back-to-top">
