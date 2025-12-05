@@ -83,3 +83,43 @@ backToTopButton?.addEventListener('click', () => {
 function redirectToTraining() {
     window.location.href = 'training.html';
 }
+
+// Navigation redirect functions
+function redirectTo(page) {
+    window.location.href = page;
+}
+
+// Quick navigation functions
+function goHome() {
+    window.location.href = 'home.html';
+}
+
+function goToCollections() {
+    window.location.href = 'all-collection.html';
+}
+
+function goToTraining() {
+    window.location.href = 'training.html';
+}
+
+function goToFavourites() {
+    window.location.href = 'favourites.html';
+}
+
+function goToAbout() {
+    window.location.href = 'about.html';
+}
+
+// Product category redirects
+function redirectToCategory(category) {
+    window.location.href = `all-collection.html?category=${encodeURIComponent(category)}`;
+}
+
+// Add click handlers for quick navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Logo click redirect
+    const logo = document.querySelector('.title-text');
+    if (logo) {
+        logo.style.cursor = 'pointer';
+    }
+});

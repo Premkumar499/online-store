@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Products - Elite Studio</title>
+  <title>Favourites - Elite Studio</title>
   <link rel="stylesheet" href="all-collection.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -16,40 +16,6 @@
       <a href="training.html">Live Training</a>
       <a href="favourites.html">Favourite</a>
       <a href="#">About Us</a>
-    </div>
-  </div>
-
-  <!-- Filter Sidebar -->
-  <div class="filter-sidebar" id="filterSidebar">
-    <div class="filter-header">
-      <h3>Filter</h3>
-      <button class="close-filter" id="closeFilter">&times;</button>
-    </div>
-    <div class="filter-section">
-      <h4>Price</h4>
-      <div class="price-range">
-        <div class="price-inputs">
-          <input type="number" id="minPrice" placeholder="From ₹" min="0" value="0">
-          <span>-</span>
-          <input type="number" id="maxPrice" placeholder="To ₹" min="0" value="20000">
-        </div>
-        <button id="applyPrice">Apply</button>
-      </div>
-    </div>
-    <div class="filter-section">
-      <h4>Categories</h4>
-      <div class="filter-item">
-        <input type="checkbox" id="category1" name="category" value="Blouses" checked>
-        <label for="category1">Blouses</label>
-      </div>
-      <div class="filter-item">
-        <input type="checkbox" id="category2" name="category" value="Bangles" checked>
-        <label for="category2">Bangles</label>
-      </div>
-      <div class="filter-item">
-        <input type="checkbox" id="category3" name="category" value="Materials" checked>
-        <label for="category3">Materials</label>
-      </div>
     </div>
   </div>
 
@@ -68,34 +34,35 @@
 
   <!-- Title Section -->
   <div class="title">
-    <h1>OUR COLLECTIONS</h1>
+    <h1>MY FAVOURITES</h1>
     <div class="breadcrumb">
-      <span><a href="home.html">HOME</a></span> > <span>COLLECTIONS</span>
+      <span><a href="home.html">HOME</a></span> > <span>FAVOURITES</span>
     </div>
   </div>
 
-  <!-- Product Search -->
-  <div class="product-selection">
-    <form class="product-search" id="searchForm">
-      <input type="text" id="search" placeholder="Search products..." autocomplete="off">
-      <button type="submit" class="search-button">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-      <div class="search-suggestions" id="searchSuggestions"></div>
-    </form>
-  </div>
-
-  <!-- Products Content -->
+  <!-- Favourites Content -->
   <div class="products-content">
     <div class="products-header">
-      <button class="filter-button" id="filterButton">
-        <i class="fas fa-filter"></i> Filter
+      <div class="results-count" id="favResultsCount">Loading favourites...</div>
+      <button class="clear-favourites-btn" id="clearFavourites">
+        <i class="fas fa-trash"></i> Clear All
       </button>
-      <div class="results-count">Showing 1 - 0 of 0 results</div>
     </div>
 
-    <div class="products-grid" id="productsGrid">
-      <!-- Products will be dynamically inserted here -->
+    <div class="products-grid" id="favouritesGrid">
+      <!-- Favourite products will be dynamically inserted here -->
+    </div>
+
+    <div class="empty-favourites" id="emptyFavourites" style="display: none;">
+      <div class="empty-state">
+        <i class="fas fa-heart-broken"></i>
+        <h3>No items in favourites</h3>
+        <p>Start adding products to your favourites by clicking the "Add to Favourites" button on product pages.</p>
+        <div class="empty-actions">
+          <a href="all-collection.html" class="btn btn-primary">Browse Products</a>
+          <a href="home.html" class="btn btn-secondary">Go Home</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -162,6 +129,6 @@
       sideNavbar.style.left = sideNavbar.style.left === '0px' ? `-${targetWidth}` : '0px';
     }
   </script>
-  <script src="all-collection.js"></script>
+  <script src="favourites.js"></script>
 </body>
 </html>

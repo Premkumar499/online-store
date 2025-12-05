@@ -91,50 +91,50 @@ const productImages = {
   '1': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '2': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '3': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '4': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '5': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '6': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '7': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ],
   '8': [
     "elite studio pic/product.jpeg",
     "elite studio pic/pic1.jpg",
-    "elite studio pic/pic2.jpg",
-    "elite studio pic/pic3.jpg"
+    "elite studio pic/collection model.jpg",
+    "elite studio pic/training.jpg"
   ]
 };
 
@@ -179,9 +179,78 @@ function loadProductDetails() {
       <p><strong>Stock:</strong> ${product.stock}</p>
       <p><strong>Vendor:</strong> ${product.vendor}</p>
     `;
+
+    // Setup Add to Favourites button
+    setupFavouritesButton(product);
   } else {
     document.querySelector('.product-details-container').innerHTML = '<p style="color:red">Product not found.</p>';
   }
+}
+
+// Setup favourites button functionality
+function setupFavouritesButton(product) {
+  const addToFavouritesBtn = document.getElementById('addToFavouritesBtn');
+  
+  if (!addToFavouritesBtn) return;
+  
+  // Check if product is already in favourites and update button state
+  updateFavouritesButtonState();
+  
+  addToFavouritesBtn.addEventListener('click', () => {
+    if (typeof addToFavourites === 'function') {
+      const result = addToFavourites(product);
+      
+      if (result.success) {
+        // Show success message
+        showMessage(result.message, 'success');
+        updateFavouritesButtonState();
+      } else {
+        // Show info message
+        showMessage(result.message, 'info');
+      }
+    } else {
+      console.error('Favourites functionality not available');
+      showMessage('Unable to add to favourites', 'error');
+    }
+  });
+}
+
+// Update button state based on whether product is in favourites
+function updateFavouritesButtonState() {
+  const addToFavouritesBtn = document.getElementById('addToFavouritesBtn');
+  const product = products[productId];
+  
+  if (!addToFavouritesBtn || !product) return;
+  
+  if (typeof isInFavourites === 'function' && isInFavourites(product.id)) {
+    addToFavouritesBtn.innerHTML = '<i class="fas fa-heart"></i> In Favourites';
+    addToFavouritesBtn.classList.add('in-favourites');
+    addToFavouritesBtn.disabled = true;
+  } else {
+    addToFavouritesBtn.innerHTML = '<i class="far fa-heart"></i> Add to Favourites';
+    addToFavouritesBtn.classList.remove('in-favourites');
+    addToFavouritesBtn.disabled = false;
+  }
+}
+
+// Show message to user
+function showMessage(message, type = 'info') {
+  // Create message element if it doesn't exist
+  let messageEl = document.querySelector('.message-popup');
+  if (!messageEl) {
+    messageEl = document.createElement('div');
+    messageEl.className = 'message-popup';
+    document.body.appendChild(messageEl);
+  }
+  
+  // Set message and type
+  messageEl.textContent = message;
+  messageEl.className = `message-popup ${type} show`;
+  
+  // Auto-hide after 3 seconds
+  setTimeout(() => {
+    messageEl.classList.remove('show');
+  }, 3000);
 }
 
 function changeMainImage(src, index) {
@@ -263,3 +332,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Navigation redirect functions
+function redirectTo(page) {
+    window.location.href = page;
+}
+
+function goHome() {
+    window.location.href = 'home.html';
+}
+
+function goToCollections() {
+    window.location.href = 'all-collection.html';
+}
+
+function goToTraining() {
+    window.location.href = 'training.html';
+}
+
+function goToFavourites() {
+    window.location.href = 'favourites.html';
+}
+
+function goToAbout() {
+    window.location.href = 'about.html';
+}
+
+// Product-specific redirects
+function continueShopping() {
+    window.location.href = 'all-collection.html';
+}
+
+function viewSimilarProducts(category) {
+    window.location.href = `all-collection.html?category=${encodeURIComponent(category)}`;
+}

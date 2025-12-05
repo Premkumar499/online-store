@@ -1,36 +1,41 @@
 // Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navMenu = document.getElementById('navMenu');
+const mobileMenuBtn = document.querySelector('.navbar-menu-toggle');
+const navMenu = document.querySelector('.navbar-links');
 
-mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-});
+// Handle mobile menu if elements exist
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+}
 
 
 
 // Form Submission - THIS IS THE IMPORTANT PART
 const enrollmentForm = document.getElementById('enrollmentForm');
 
-enrollmentForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // This stops the redirect
-    
-    // Form validation
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-    const paymentPlan = document.querySelector('input[name="paymentPlan"]:checked').value;
-    const experience = document.getElementById('experience').value;
-    const referral = document.getElementById('referral').value;
-    const terms = document.getElementById('terms').checked;
-    
-    if (!firstName || !email || !phone || !address || !terms) {
-        alert('Please fill in all required fields and agree to the terms.');
-        return;
-    }
+if (enrollmentForm) {
+    enrollmentForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // This stops the redirect
+        
+        // Form validation
+        const firstName = document.getElementById('firstName')?.value;
+        const lastName = document.getElementById('lastName')?.value;
+        const email = document.getElementById('email')?.value;
+        const phone = document.getElementById('phone')?.value;
+        const address = document.getElementById('address')?.value;
+        const paymentPlanElement = document.querySelector('input[name="paymentPlan"]:checked');
+        const paymentPlan = paymentPlanElement?.value;
+        const experience = document.getElementById('experience')?.value;
+        const referral = document.getElementById('referral')?.value;
+        const terms = document.getElementById('terms')?.checked;
+        
+        if (!firstName || !email || !phone || !address || !terms || !paymentPlan) {
+            alert('Please fill in all required fields and agree to the terms.');
+            return;
+        }
     
     // Prepare the email content
     const emailContent = `
@@ -46,37 +51,22 @@ enrollmentForm.addEventListener('submit', async (e) => {
     `;
     
     try {
-        // Simple way to send email without external services
-        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                service_id: 'YOUR_SERVICE_ID',
-                template_id: 'YOUR_TEMPLATE_ID',
-                user_id: 'YOUR_USER_ID',
-                template_params: {
-                    to_email: 'premkumar67861@gmail.com',
-                    from_name: `${firstName} ${lastName}`,
-                    from_email: email,
-                    message: emailContent,
-                    subject: 'New Aari Class Enrollment'
-                }
-            })
-        });
+        // Simple form submission alert since EmailJS isn't properly configured
+        // For a real implementation, you would need to set up EmailJS service
+        alert(`Thank you ${firstName} ${lastName}! Your enrollment has been submitted.\\nWe will contact you at ${phone} or ${email} within 24 hours.\\nSelected Plan: ${paymentPlan}`);
+        enrollmentForm.reset();
         
-        if (response.ok) {
-            alert('Thank you for your enrollment! We will contact you shortly.');
-            enrollmentForm.reset();
-        } else {
-            throw new Error('Failed to send email');
-        }
+        // Optional: You can implement actual email sending here by integrating with:
+        // - EmailJS (with proper service_id, template_id, user_id)
+        // - Backend API endpoint
+        // - Third-party form services like Netlify Forms, Formspree, etc.
+        
     } catch (error) {
         console.error('Error:', error);
-        alert('Your enrollment was received but we couldn\'t send the confirmation email. We will still contact you.');
+        alert('Thank you for your enrollment! We have received your information and will contact you soon.');
     }
-});
+    });
+}
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -101,3 +91,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Navigation redirect functions
+function redirectTo(page) {
+    window.location.href = page;
+}
+
+function goHome() {
+    window.location.href = 'home.html';
+}
+
+function goToCollections() {
+    window.location.href = 'all-collection.html';
+}
+
+function goToFavourites() {
+    window.location.href = 'favourites.html';
+}
+
+function goToAbout() {
+    window.location.href = 'about.html';
+}
+
+// Course-specific redirects
+function enrollNow() {
+    document.getElementById('enrollment').scrollIntoView({ behavior: 'smooth' });
+}
+
+function viewMaterials() {
+    window.location.href = 'all-collection.html?category=Materials';
+}

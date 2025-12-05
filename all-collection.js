@@ -274,3 +274,33 @@ function toggleSideNavbar() {
   const targetWidth = isMobile ? '80%' : '60%';
   sideNavbar.style.left = sideNavbar.style.left === '0px' ? `-${targetWidth}` : '0px';
 }
+
+// Navigation redirect functions
+function redirectTo(page) {
+    window.location.href = page;
+}
+
+function goHome() {
+    window.location.href = 'home.html';
+}
+
+function goToTraining() {
+    window.location.href = 'training.html';
+}
+
+function goToFavourites() {
+    window.location.href = 'favourites.html';
+}
+
+function goToAbout() {
+    window.location.href = 'about.html';
+}
+
+// Quick action redirects
+function quickShop() {
+    document.querySelector('.products-grid').scrollIntoView({ behavior: 'smooth' });
+}
+
+function viewAllProducts() {
+    window.location.href = 'all-collection.html';
+}

@@ -14,7 +14,7 @@
       <a href="home.html">Home</a>
       <a href="all-collection.html">Collections</a>
       <a href="training.html">Live Training</a>
-      <a href="#">Favourite</a>
+      <a href="favourites.html">Favourite</a>
       <a href="#">About Us</a>
     </div>
   </div>
@@ -26,11 +26,20 @@
       <a href="home.html">Home</a>
       <a href="all-collection.html">Collections</a>
       <a href="training.html">Live Training</a>
-      <a href="#">Favourite</a>
-      <a href="#">About Us</a>
+      <a href="favourites.html">Favourite</a>
+      <a href="about.html">About Us</a>
     </div>
     <div class="navbar-menu-toggle" onclick="toggleSideNavbar()">&#9776;</div>
   </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <div class="container">
+      <a href="home.html">Home</a> > 
+      <a href="all-collection.html">Collections</a> > 
+      <span>Product Details</span>
+    </div>
+  </div>
 
   <div class="product-details-container">
     <div class="product-gallery">
@@ -46,7 +55,9 @@
       <h1 id="productTitle"></h1>
       <p class="price" id="productPrice"></p>
       <div class="product-description"></div>
-      <button class="add-to-cart">Add to Cart</button>
+      <button class="add-to-favourites" id="addToFavouritesBtn">
+        <i class="fas fa-heart"></i> Add to Favourites
+      </button>
     </div>
   </div>
 
@@ -72,14 +83,6 @@
       </div>
       <div class="shipping-item">
         <h3>SECURE CHECKOUT</h3>
-      </div>
-    </div>
-
-    <div class="membership-section">
-      <div class="membership-content">
-        <h2>Become a Forever</h2>
-        <p>Join now to discover a world of exclusive fashion rewards.</p>
-        <button class="join-button">JOIN US</button>
       </div>
     </div>
 
@@ -121,6 +124,7 @@
     </div>
   </footer>
 
+  <script src="favourites.js"></script>
   <script src="all-collection-detail.js"></script>
 </body>
 </html>
